@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- ScrollView para rolar o conteúdo -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <!-- Layout para conter os DatePicker e o botão -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center_horizontal">
+
+            <!-- DatePicker 1 -->
+            <DatePicker
+                android:id="@+id/dtPicker1"
+                style="@android:style/Widget.DatePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:datePickerMode="spinner"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- DatePicker 2 -->
+            <DatePicker
+                android:id="@+id/dtPicker2"
+                style="@android:style/Widget.Holo.DatePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:datePickerMode="calendar" />
+
+            <!-- DatePicker 3 -->
+            <DatePicker
+                android:id="@+id/dtPicker3"
+                style="@android:style/Widget.Material.Light.DatePicker"
+                android:layout_width="581dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:datePickerMode="spinner"
+                android:dayOfWeekBackground="#F44336" />
+
+            <!-- Botão para validar -->
+            <Button
+                android:id="@+id/btvalidar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Validar"
+                android:textSize="20sp" />
+
+            <!-- Layout com as datas validadas -->
+            <LinearLayout
+                android:id="@+id/layoutValidatedDates"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/tvDate1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Data 1:"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvDate2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Data 2:"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvDate3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Data 3:"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
