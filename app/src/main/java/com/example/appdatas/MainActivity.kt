@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
             if (isValidDate(date1) && isValidDate(date2) && isValidDate(date3)) {
                 val dates = listOf(date1, date2, date3).sorted()
                 displaySortedDates(dates)
+                displayDateDifferences(dates)
             } else {
-                // Show a toast message if any date is invalid
                 Toast.makeText(this, "Uma ou mais datas são inválidas. As datas devem estar entre 01/01/1900 e 31/12/2029.", Toast.LENGTH_LONG).show()
             }
         }
@@ -64,5 +64,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun formatDate(date: Date): String {
         return SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(date)
+    }
+
+    // Função para exibir a diferença entre as datas
+    private fun displayDateDifferences(dates: List<Date>) {
+        val diffInDays1to2 = getDifferenceInDays(dates[0], dates[1])
+        val diffInDays2to3 = getDifferenceInDays(dates[1], dates[2])
+
+        binding.tvDiff1to2.text = "Diferença entre Data 1 e Data 2: $diffInDays1to2 dias"
+        binding.tvDiff2to3.text = "Diferença entre Data 2 e Data 3: $diffInDays2to3 dias"
+    }
+
+    // Função para calcular a diferença em dias entre duas datas
+    private fun getDifferenceInDays(date1: Date, date2: Date): Long {
+        val diffInMillis = date2.time - date1.time
+        return diffInMillis / (1000 * 60 * 60 * 24) // Converter milissegundos para dias
     }
 }
